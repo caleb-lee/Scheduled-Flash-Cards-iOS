@@ -15,6 +15,7 @@
 		841822141AB2756200D67DF8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841822131AB2756200D67DF8 /* Images.xcassets */; };
 		841822171AB2756200D67DF8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841822151AB2756200D67DF8 /* LaunchScreen.xib */; };
 		841822231AB2756200D67DF8 /* Scheduled_Flash_CardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 841822221AB2756200D67DF8 /* Scheduled_Flash_CardsTests.m */; };
+		8418222E1AB275F600D67DF8 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418222D1AB275F600D67DF8 /* Card.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		8418221C1AB2756200D67DF8 /* Scheduled Flash CardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scheduled Flash CardsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		841822211AB2756200D67DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841822221AB2756200D67DF8 /* Scheduled_Flash_CardsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Scheduled_Flash_CardsTests.m; sourceTree = "<group>"; };
+		8418222C1AB275F600D67DF8 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		8418222D1AB275F600D67DF8 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				841822131AB2756200D67DF8 /* Images.xcassets */,
 				841822151AB2756200D67DF8 /* LaunchScreen.xib */,
 				8418220A1AB2756200D67DF8 /* Scheduled_Flash_Cards.xcdatamodeld */,
+				8418222C1AB275F600D67DF8 /* Card.h */,
+				8418222D1AB275F600D67DF8 /* Card.m */,
 				841822031AB2756200D67DF8 /* Supporting Files */,
 			);
 			path = "Scheduled Flash Cards";
@@ -222,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8418222E1AB275F600D67DF8 /* Card.m in Sources */,
 				8418220C1AB2756200D67DF8 /* Scheduled_Flash_Cards.xcdatamodeld in Sources */,
 				841822091AB2756200D67DF8 /* AppDelegate.m in Sources */,
 				8418220F1AB2756200D67DF8 /* ViewController.m in Sources */,
