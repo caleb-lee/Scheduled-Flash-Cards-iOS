@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  MainMenuViewController.m
 //  Scheduled Flash Cards
 //
 //  Created by Caleb Lee on 2015/03/12.
 //  Copyright (c) 2015年 Caleb Lee. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainMenuViewController.h"
 
-@interface ViewController ()
+@interface MainMenuViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MainMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

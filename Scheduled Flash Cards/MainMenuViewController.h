@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainMenuViewController.h
 //  Scheduled Flash Cards
 //
 //  Created by Caleb Lee on 2015/03/12.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MainMenuViewController : UIViewController
 
 
 @end

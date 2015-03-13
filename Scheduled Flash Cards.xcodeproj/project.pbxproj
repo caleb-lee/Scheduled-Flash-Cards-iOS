@@ -10,7 +10,7 @@
 		841822061AB2756200D67DF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 841822051AB2756200D67DF8 /* main.m */; };
 		841822091AB2756200D67DF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841822081AB2756200D67DF8 /* AppDelegate.m */; };
 		8418220C1AB2756200D67DF8 /* Scheduled_Flash_Cards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8418220A1AB2756200D67DF8 /* Scheduled_Flash_Cards.xcdatamodeld */; };
-		8418220F1AB2756200D67DF8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418220E1AB2756200D67DF8 /* ViewController.m */; };
+		8418220F1AB2756200D67DF8 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418220E1AB2756200D67DF8 /* MainMenuViewController.m */; };
 		841822121AB2756200D67DF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841822101AB2756200D67DF8 /* Main.storyboard */; };
 		841822141AB2756200D67DF8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841822131AB2756200D67DF8 /* Images.xcassets */; };
 		841822171AB2756200D67DF8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841822151AB2756200D67DF8 /* LaunchScreen.xib */; };
@@ -35,8 +35,8 @@
 		841822071AB2756200D67DF8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		841822081AB2756200D67DF8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8418220B1AB2756200D67DF8 /* Scheduled_Flash_Cards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Scheduled_Flash_Cards.xcdatamodel; sourceTree = "<group>"; };
-		8418220D1AB2756200D67DF8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8418220E1AB2756200D67DF8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8418220D1AB2756200D67DF8 /* MainMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		8418220E1AB2756200D67DF8 /* MainMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		841822111AB2756200D67DF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		841822131AB2756200D67DF8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		841822161AB2756200D67DF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -88,8 +88,8 @@
 			children = (
 				841822071AB2756200D67DF8 /* AppDelegate.h */,
 				841822081AB2756200D67DF8 /* AppDelegate.m */,
-				8418220D1AB2756200D67DF8 /* ViewController.h */,
-				8418220E1AB2756200D67DF8 /* ViewController.m */,
+				8418220D1AB2756200D67DF8 /* MainMenuViewController.h */,
+				8418220E1AB2756200D67DF8 /* MainMenuViewController.m */,
 				841822101AB2756200D67DF8 /* Main.storyboard */,
 				841822131AB2756200D67DF8 /* Images.xcassets */,
 				841822151AB2756200D67DF8 /* LaunchScreen.xib */,
@@ -230,7 +230,7 @@
 				8418222E1AB275F600D67DF8 /* Card.m in Sources */,
 				8418220C1AB2756200D67DF8 /* Scheduled_Flash_Cards.xcdatamodeld in Sources */,
 				841822091AB2756200D67DF8 /* AppDelegate.m in Sources */,
-				8418220F1AB2756200D67DF8 /* ViewController.m in Sources */,
+				8418220F1AB2756200D67DF8 /* MainMenuViewController.m in Sources */,
 				841822061AB2756200D67DF8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
