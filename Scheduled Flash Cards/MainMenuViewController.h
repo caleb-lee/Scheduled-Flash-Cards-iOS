@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Deck+Management.h"
 
-@interface MainMenuViewController : UIViewController
+@interface MainMenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 
 
 @end

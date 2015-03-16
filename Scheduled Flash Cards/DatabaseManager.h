@@ -19,3 +19,6 @@ NSArray* fetchObjects(NSString *entityName, NSPredicate *predicate, NSArray *sor
 
 // fetches an object from the NSManagedObjectContext
 NSManagedObject* fetchObject(NSString *entityName, NSPredicate *predicate, NSArray *sortDescriptors);
+
+// makes an NSFetchRequest
+NSFetchRequest* fetchRequest(NSString *entityName, NSPredicate *predicate, NSArray *sortDescriptors);

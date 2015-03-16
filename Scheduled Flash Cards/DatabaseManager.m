@@ -28,13 +28,8 @@ NSArray* fetchObjects(NSString *entityName, NSPredicate *predicate, NSArray *sor
     // get the managed object context
     NSManagedObjectContext *moc = defaultManagedObjectContext();
     
-    // make request
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    
-    // configure request
-    [request setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:moc]];
-    [request setPredicate:predicate];
-    [request setSortDescriptors:sortDescriptors];
+    // get NSFetchRequest
+    NSFetchRequest *request = fetchRequest(entityName, predicate, sortDescriptors);
     
     // get ready to store error (if needed)
     NSError *error;
@@ -60,4 +55,22 @@ NSManagedObject* fetchObject(NSString *entityName, NSPredicate *predicate, NSArr
         object = [array objectAtIndex:0];
     
     return object;
+}
+
+// makes an NSFetchRequest
+NSFetchRequest* fetchRequest(NSString *entityName, NSPredicate *predicate, NSArray *sortDescriptors) {
+    // get the managed object context
+    NSManagedObjectContext *moc = defaultManagedObjectContext();
+    
+    // make request
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    // configure request
+    [request setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:moc]];
+    if (predicate != nil)
+        [request setPredicate:predicate];
+    [request setSortDescriptors:sortDescriptors];
+    
+    // return request
+    return request;
 }
