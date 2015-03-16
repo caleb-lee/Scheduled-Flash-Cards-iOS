@@ -16,21 +16,122 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d0p-gM-MsX">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0p-gM-MsX">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="DIT-eX-rVO"/>
-                                    <barButtonItem title="Add New Deck" id="IgP-Sw-RNr"/>
+                                    <barButtonItem title="Add New Deck" id="IgP-Sw-RNr">
+                                        <connections>
+                                            <action selector="addNewDeckButtonAction:" destination="vXZ-lx-hvc" id="TMl-lY-3IT"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="d0p-gM-MsX" secondAttribute="bottom" id="b4c-Qq-9lW"/>
+                            <constraint firstAttribute="trailing" secondItem="d0p-gM-MsX" secondAttribute="trailing" id="bUX-jp-bHK"/>
+                            <constraint firstItem="d0p-gM-MsX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="imT-JD-zLM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Decks" id="Rcp-8h-9Jq"/>
+                    <connections>
+                        <segue destination="iR1-SR-vlH" kind="presentation" identifier="ShowAddNewDeckVC" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="a1f-14-57T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1144" y="441"/>
+        </scene>
+        <!--Add New Deck View Controller-->
+        <scene sceneID="adP-a8-xDh">
+            <objects>
+                <viewController id="iR1-SR-vlH" customClass="AddNewDeckViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zor-8k-Y0X"/>
+                        <viewControllerLayoutGuide type="bottom" id="hBW-vY-rHK"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="QKg-Fz-xmJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3O-9g-F6s">
+                                <rect key="frame" x="180" y="205" width="240" height="180"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yed-Yk-QQI">
+                                        <rect key="frame" x="67" y="60" width="165" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="rkB-tU-rle"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGt-iR-hNN">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                                        <items>
+                                            <navigationItem title="Create Deck" id="A6e-L9-dOg"/>
+                                        </items>
+                                    </navigationBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsg-IB-jTG">
+                                        <rect key="frame" x="8" y="64" width="51" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="r3p-ve-Gp6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIc-9J-rUj">
+                                        <rect key="frame" x="16" y="136" width="48" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="71d-K5-Vaw"/>
+                                            <constraint firstAttribute="height" constant="44" id="GaP-F1-22s"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcL-Jq-I9f">
+                                        <rect key="frame" x="180" y="136" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="cbs-tg-dn0"/>
+                                            <constraint firstAttribute="width" constant="44" id="siI-nW-0bJ"/>
+                                        </constraints>
+                                        <state key="normal" title="OK">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="CIc-9J-rUj" firstAttribute="leading" secondItem="B3O-9g-F6s" secondAttribute="leading" constant="16" id="AI1-Lb-PcB"/>
+                                    <constraint firstAttribute="bottom" secondItem="fcL-Jq-I9f" secondAttribute="bottom" id="AfY-4Y-U3L"/>
+                                    <constraint firstAttribute="trailing" secondItem="fcL-Jq-I9f" secondAttribute="trailing" constant="16" id="IGI-Zt-rcC"/>
+                                    <constraint firstAttribute="width" constant="240" id="KZJ-2k-gOp"/>
+                                    <constraint firstItem="wsg-IB-jTG" firstAttribute="top" secondItem="BGt-iR-hNN" secondAttribute="bottom" constant="20" id="NTn-H4-tWC"/>
+                                    <constraint firstItem="yed-Yk-QQI" firstAttribute="leading" secondItem="wsg-IB-jTG" secondAttribute="trailing" constant="8" id="SL9-FD-cgx"/>
+                                    <constraint firstAttribute="bottom" secondItem="CIc-9J-rUj" secondAttribute="bottom" id="UJp-2X-ABl"/>
+                                    <constraint firstItem="BGt-iR-hNN" firstAttribute="top" secondItem="B3O-9g-F6s" secondAttribute="top" id="a95-vR-r4n"/>
+                                    <constraint firstItem="yed-Yk-QQI" firstAttribute="top" secondItem="BGt-iR-hNN" secondAttribute="bottom" constant="16" id="aKy-cO-Sdt"/>
+                                    <constraint firstAttribute="trailing" secondItem="BGt-iR-hNN" secondAttribute="trailing" id="bXq-zz-blW"/>
+                                    <constraint firstAttribute="trailing" secondItem="yed-Yk-QQI" secondAttribute="trailing" constant="8" id="eG1-Bx-gQQ"/>
+                                    <constraint firstItem="BGt-iR-hNN" firstAttribute="leading" secondItem="B3O-9g-F6s" secondAttribute="leading" id="r0y-bn-DuF"/>
+                                    <constraint firstAttribute="height" constant="180" id="srA-KK-JP8"/>
+                                    <constraint firstItem="wsg-IB-jTG" firstAttribute="leading" secondItem="B3O-9g-F6s" secondAttribute="leading" constant="8" id="vut-OX-lss"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="B3O-9g-F6s" secondAttribute="centerX" id="1xE-Mb-Jrp"/>
+                            <constraint firstAttribute="centerY" secondItem="B3O-9g-F6s" secondAttribute="centerY" constant="5" id="jFg-I1-6Qc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70n-8K-E6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144" y="1246"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1KP-sf-9mm">

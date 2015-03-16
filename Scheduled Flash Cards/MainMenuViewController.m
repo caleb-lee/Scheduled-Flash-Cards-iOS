@@ -9,10 +9,13 @@
 #import "MainMenuViewController.h"
 
 @interface MainMenuViewController ()
+- (IBAction)addNewDeckButtonAction:(id)sender;
 
 @end
 
 @implementation MainMenuViewController
+
+static NSString *addNewDeckSegueIdentifier = @"ShowAddNewDeckVC";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,4 +27,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+// show UI at add a new deck
+- (IBAction)addNewDeckButtonAction:(id)sender {
+    [self performSegueWithIdentifier:addNewDeckSegueIdentifier sender:self];
+}
 @end
