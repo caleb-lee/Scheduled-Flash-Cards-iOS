@@ -14,7 +14,14 @@
 
 @property (strong, nonatomic) NSArray *dueCardsArray;
 @property (nonatomic) NSInteger currentCardIndex;
+@property (strong, nonatomic) Card *currentlyShowingCard;
 @property (strong, nonatomic) ScheduleController *scheduleController;
+
+// buttons
+- (IBAction)wrongButtonAction:(id)sender;
+- (IBAction)hardButtonAction:(id)sender;
+- (IBAction)goodButtonAction:(id)sender;
+- (IBAction)easyButtonAction:(id)sender;
 
 @end
 
@@ -26,15 +33,24 @@
     // set defaults
     _currentCardIndex = 0;
     _scheduleController = [[ScheduleController alloc] init];
-    
-    // fill dueCardsArray
-    _dueCardsArray = [Card getDueCardsInDeck:_deck];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     // show first view
+    [self showCardIfNeeded];
+}
+
+- (void)showCardIfNeeded {
+    // check for more due cards if we're at the limit (or if this is our first time seeing this screen)
+    if (_dueCardsArray == nil || _currentCardIndex == [_dueCardsArray count]) {
+        _currentCardIndex = 0; // reset current card index
+        _dueCardsArray = [Card getDueCardsInDeck:_deck];
+    }
+    
+    // if we still have no cards, show no cards due
+    //  otherwise, show card
     if ([_dueCardsArray count] == 0)
         [self showNoCardsDue];
     else
@@ -45,6 +61,7 @@
     _deck = nil;
     _dueCardsArray = nil;
     _scheduleController = nil;
+    _currentlyShowingCard = nil;
 }
 
 - (void)showNoCardsDue {
@@ -54,11 +71,34 @@
 
 - (void)showCard {
 #warning TODO
+    _currentlyShowingCard = [_dueCardsArray objectAtIndex:_currentCardIndex];
 }
 
 #pragma Mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)wrongButtonAction:(id)sender {
+    [self gradeCardWithDifficulty:0];
+}
+
+- (IBAction)hardButtonAction:(id)sender {
+    [self gradeCardWithDifficulty:1];
+}
+
+- (IBAction)goodButtonAction:(id)sender {
+    [self gradeCardWithDifficulty:2];
+}
+
+- (IBAction)easyButtonAction:(id)sender {
+    [self gradeCardWithDifficulty:3];
+}
+
+- (void)gradeCardWithDifficulty:(NSInteger)difficulty {
+    [_scheduleController scheduleCard:_currentlyShowingCard withDifficulty:3];
+    _currentCardIndex++;
+    [self showCardIfNeeded];
 }
 
 @end
