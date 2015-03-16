@@ -16,12 +16,12 @@
                     <view key="view" contentMode="scaleToFill" id="ADU-K1-ZA0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1W-Qu-uCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="-307"/>
+            <point key="canvasLocation" x="1144" y="-303"/>
         </scene>
         <!--Decks-->
         <scene sceneID="ufC-wZ-h7g">
@@ -215,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70n-8K-E6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="1246"/>
+            <point key="canvasLocation" x="1144" y="1184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1KP-sf-9mm">

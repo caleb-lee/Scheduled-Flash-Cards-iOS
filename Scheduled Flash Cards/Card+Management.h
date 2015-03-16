@@ -15,4 +15,9 @@
 //  it sets interval to 0, lastSeen to jan 1, 1970, and nextSee to now (whenever the card is added)
 + (Card*)insertCardWithFront:(NSString*)front Back:(NSString*)back intoDeck:(Deck*)deck;
 
+// this method returns all due cards in the given deck
+//  or returns nil if there are no cards due
+// the cards are sorted first by interval (descending) and second by nextSeeDate (ascending)
++ (NSArray*)getDueCardsInDeck:(Deck*)deck;
+
 @end
