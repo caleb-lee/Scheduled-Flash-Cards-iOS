@@ -17,6 +17,8 @@
 		841822231AB2756200D67DF8 /* Scheduled_Flash_CardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 841822221AB2756200D67DF8 /* Scheduled_Flash_CardsTests.m */; };
 		84B55BD41AB7240E0010C60B /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BD31AB7240E0010C60B /* Deck.m */; };
 		84B55BD71AB724630010C60B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BD61AB724630010C60B /* Card.m */; };
+		84B55BDF1AB72F570010C60B /* Deck+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BDE1AB72F570010C60B /* Deck+Management.m */; };
+		84B55BE21AB72F6C0010C60B /* Card+Management.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BE11AB72F6C0010C60B /* Card+Management.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,10 @@
 		84B55BD31AB7240E0010C60B /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		84B55BD51AB724630010C60B /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		84B55BD61AB724630010C60B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		84B55BDD1AB72F570010C60B /* Deck+Management.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Deck+Management.h"; sourceTree = "<group>"; };
+		84B55BDE1AB72F570010C60B /* Deck+Management.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Deck+Management.m"; sourceTree = "<group>"; };
+		84B55BE01AB72F6C0010C60B /* Card+Management.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Card+Management.h"; sourceTree = "<group>"; };
+		84B55BE11AB72F6C0010C60B /* Card+Management.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Card+Management.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,11 +102,7 @@
 				841822101AB2756200D67DF8 /* Main.storyboard */,
 				841822131AB2756200D67DF8 /* Images.xcassets */,
 				841822151AB2756200D67DF8 /* LaunchScreen.xib */,
-				8418220A1AB2756200D67DF8 /* Scheduled_Flash_Cards.xcdatamodeld */,
-				84B55BD51AB724630010C60B /* Card.h */,
-				84B55BD61AB724630010C60B /* Card.m */,
-				84B55BD21AB7240E0010C60B /* Deck.h */,
-				84B55BD31AB7240E0010C60B /* Deck.m */,
+				84B55BD81AB72EDB0010C60B /* Model */,
 				841822031AB2756200D67DF8 /* Supporting Files */,
 			);
 			path = "Scheduled Flash Cards";
@@ -130,6 +132,30 @@
 				841822211AB2756200D67DF8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84B55BD81AB72EDB0010C60B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8418220A1AB2756200D67DF8 /* Scheduled_Flash_Cards.xcdatamodeld */,
+				84B55BE01AB72F6C0010C60B /* Card+Management.h */,
+				84B55BE11AB72F6C0010C60B /* Card+Management.m */,
+				84B55BDD1AB72F570010C60B /* Deck+Management.h */,
+				84B55BDE1AB72F570010C60B /* Deck+Management.m */,
+				84B55BD91AB72EE70010C60B /* Managed Objects */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		84B55BD91AB72EE70010C60B /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				84B55BD51AB724630010C60B /* Card.h */,
+				84B55BD61AB724630010C60B /* Card.m */,
+				84B55BD21AB7240E0010C60B /* Deck.h */,
+				84B55BD31AB7240E0010C60B /* Deck.m */,
+			);
+			name = "Managed Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,9 +260,11 @@
 			files = (
 				8418220C1AB2756200D67DF8 /* Scheduled_Flash_Cards.xcdatamodeld in Sources */,
 				841822091AB2756200D67DF8 /* AppDelegate.m in Sources */,
+				84B55BDF1AB72F570010C60B /* Deck+Management.m in Sources */,
 				8418220F1AB2756200D67DF8 /* MainMenuViewController.m in Sources */,
 				84B55BD41AB7240E0010C60B /* Deck.m in Sources */,
 				841822061AB2756200D67DF8 /* main.m in Sources */,
+				84B55BE21AB72F6C0010C60B /* Card+Management.m in Sources */,
 				84B55BD71AB724630010C60B /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
