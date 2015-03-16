@@ -21,6 +21,7 @@
 		84B55BE81AB7390D0010C60B /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BE71AB7390D0010C60B /* Deck.m */; };
 		84B55BEB1AB73EF70010C60B /* AddNewDeckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BEA1AB73EF70010C60B /* AddNewDeckViewController.m */; };
 		84B55BED1AB74EF60010C60B /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BEC1AB74EF60010C60B /* DatabaseManager.m */; };
+		84B55BF11AB76EC10010C60B /* AddNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BF01AB76EC10010C60B /* AddNewCardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		84B55BEA1AB73EF70010C60B /* AddNewDeckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewDeckViewController.m; sourceTree = "<group>"; };
 		84B55BEC1AB74EF60010C60B /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		84B55BEE1AB74F090010C60B /* DatabaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
+		84B55BEF1AB76EC10010C60B /* AddNewCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewCardViewController.h; sourceTree = "<group>"; };
+		84B55BF01AB76EC10010C60B /* AddNewCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewCardViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				8418220E1AB2756200D67DF8 /* MainMenuViewController.m */,
 				84B55BE91AB73EF70010C60B /* AddNewDeckViewController.h */,
 				84B55BEA1AB73EF70010C60B /* AddNewDeckViewController.m */,
+				84B55BEF1AB76EC10010C60B /* AddNewCardViewController.h */,
+				84B55BF01AB76EC10010C60B /* AddNewCardViewController.m */,
 				841822101AB2756200D67DF8 /* Main.storyboard */,
 				841822131AB2756200D67DF8 /* Images.xcassets */,
 				841822151AB2756200D67DF8 /* LaunchScreen.xib */,
@@ -268,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B55BF11AB76EC10010C60B /* AddNewCardViewController.m in Sources */,
 				84B55BEB1AB73EF70010C60B /* AddNewDeckViewController.m in Sources */,
 				84B55BE81AB7390D0010C60B /* Deck.m in Sources */,
 				8418220C1AB2756200D67DF8 /* Scheduled_Flash_Cards.xcdatamodeld in Sources */,

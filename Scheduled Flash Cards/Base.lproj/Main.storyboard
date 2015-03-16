@@ -5,6 +5,24 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Add Cards-->
+        <scene sceneID="e3g-gT-zkH">
+            <objects>
+                <viewController title="Add Cards" id="a5R-7d-xVX" customClass="AddNewCardViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6nE-5x-hQt"/>
+                        <viewControllerLayoutGuide type="bottom" id="qv7-DO-cAk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ADU-K1-ZA0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E1W-Qu-uCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144" y="-307"/>
+        </scene>
         <!--Decks-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -69,6 +87,7 @@
                     <connections>
                         <outlet property="tableView" destination="pK0-pY-faK" id="qD7-GU-vzv"/>
                         <segue destination="iR1-SR-vlH" kind="presentation" identifier="ShowAddNewDeckVC" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="a1f-14-57T"/>
+                        <segue destination="a5R-7d-xVX" kind="show" identifier="AddCardSegue" id="Ezh-cN-LjD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

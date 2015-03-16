@@ -7,17 +7,21 @@
 //
 
 #import "MainMenuViewController.h"
+#import "AddNewCardViewController.h"
 
 @interface MainMenuViewController ()
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)addNewDeckButtonAction:(id)sender;
 
+@property (strong, nonatomic) Deck *selectedDeck;
+@property (strong, nonatomic) NSIndexPath *selectedRow;
 @end
 
 @implementation MainMenuViewController
 
 static NSString *addNewDeckSegueIdentifier = @"ShowAddNewDeckVC";
+static NSString *addCardSegueIdentifier = @"AddCardSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -53,12 +57,33 @@ static NSString *addNewDeckSegueIdentifier = @"ShowAddNewDeckVC";
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
+- (void)dealloc {
+    _fetchedResultsController = nil;
+    _selectedDeck = nil;
+    _selectedRow = nil;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:addCardSegueIdentifier]) {
+        AddNewCardViewController *vc = (AddNewCardViewController*)segue.destinationViewController;
+        vc.deck = _selectedDeck;
+    }
+}
+
 #pragma Mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    _selectedRow = indexPath;
+    _selectedDeck = (Deck*)[_fetchedResultsController objectAtIndexPath:indexPath];
+    
+    UIActionSheet *selectActions = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Review cards", @"Add cards", nil];
+    [selectActions showInView:self.view];
+}
+
+#pragma Mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [[_fetchedResultsController sections] count];
 }
 
-#pragma Mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([[_fetchedResultsController sections] count] > 0) {
         id <NSFetchedResultsSectionInfo> sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
@@ -127,6 +152,23 @@ static NSString *addNewDeckSegueIdentifier = @"ShowAddNewDeckVC";
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [_tableView endUpdates];
+}
+
+#pragma Mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0: // review cards
+            
+            break;
+        case 1: // add cards
+            [self performSegueWithIdentifier:addCardSegueIdentifier sender:self];
+            break;
+        default:
+            break;
+    }
+    
+    [_tableView deselectRowAtIndexPath:_selectedRow animated:YES];
+    _selectedRow = nil;
 }
 
 @end
