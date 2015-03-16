@@ -23,6 +23,7 @@
 		84B55BED1AB74EF60010C60B /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BEC1AB74EF60010C60B /* DatabaseManager.m */; };
 		84B55BF11AB76EC10010C60B /* AddNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BF01AB76EC10010C60B /* AddNewCardViewController.m */; };
 		84B55BF41AB779010010C60B /* ScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BF31AB779010010C60B /* ScheduleController.m */; };
+		84B55BF71AB782C60010C60B /* ReviewCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BF61AB782C60010C60B /* ReviewCardsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		84B55BF01AB76EC10010C60B /* AddNewCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewCardViewController.m; sourceTree = "<group>"; };
 		84B55BF21AB779010010C60B /* ScheduleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleController.h; sourceTree = "<group>"; };
 		84B55BF31AB779010010C60B /* ScheduleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleController.m; sourceTree = "<group>"; };
+		84B55BF51AB782C60010C60B /* ReviewCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewCardsViewController.h; sourceTree = "<group>"; };
+		84B55BF61AB782C60010C60B /* ReviewCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewCardsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				84B55BEA1AB73EF70010C60B /* AddNewDeckViewController.m */,
 				84B55BEF1AB76EC10010C60B /* AddNewCardViewController.h */,
 				84B55BF01AB76EC10010C60B /* AddNewCardViewController.m */,
+				84B55BF51AB782C60010C60B /* ReviewCardsViewController.h */,
+				84B55BF61AB782C60010C60B /* ReviewCardsViewController.m */,
 				84B55BF21AB779010010C60B /* ScheduleController.h */,
 				84B55BF31AB779010010C60B /* ScheduleController.m */,
 				841822101AB2756200D67DF8 /* Main.storyboard */,
@@ -282,6 +287,7 @@
 				84B55BEB1AB73EF70010C60B /* AddNewDeckViewController.m in Sources */,
 				84B55BE81AB7390D0010C60B /* Deck.m in Sources */,
 				8418220C1AB2756200D67DF8 /* Scheduled_Flash_Cards.xcdatamodeld in Sources */,
+				84B55BF71AB782C60010C60B /* ReviewCardsViewController.m in Sources */,
 				84B55BF41AB779010010C60B /* ScheduleController.m in Sources */,
 				841822091AB2756200D67DF8 /* AppDelegate.m in Sources */,
 				84B55BDF1AB72F570010C60B /* Deck+Management.m in Sources */,
