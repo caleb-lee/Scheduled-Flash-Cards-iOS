@@ -12,6 +12,7 @@
 
 @implementation Deck
 
+@dynamic name;
 @dynamic cards;
 
 @end

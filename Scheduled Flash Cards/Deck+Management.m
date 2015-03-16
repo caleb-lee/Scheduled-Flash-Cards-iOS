@@ -10,4 +10,6 @@
 
 @implementation Deck (Management)
 
+static NSString *entityName = @"Deck";
+
 @end

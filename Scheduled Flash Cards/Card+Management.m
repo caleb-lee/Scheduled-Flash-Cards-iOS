@@ -10,4 +10,6 @@
 
 @implementation Card (Management)
 
+static NSString *entityName = @"Card";
+
 @end

@@ -7,7 +7,11 @@
 //
 
 #import "Card.h"
+#import "Deck.h"
 
 @interface Card (Management)
+
+// creates and inserts a new card with the given front and back into the given deck
++ (Card*)insertCardWithFront:(NSString*)front Back:(NSString*)back intoDeck:(Deck*)deck;
 
 @end
