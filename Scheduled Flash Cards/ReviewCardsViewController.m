@@ -29,12 +29,22 @@
     
     // fill dueCardsArray
     _dueCardsArray = [Card getDueCardsInDeck:_deck];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
     // show first view
-    if (_dueCardsArray == nil)
+    if ([_dueCardsArray count] == 0)
         [self showNoCardsDue];
     else
         [self showCard];
+}
+
+- (void)dealloc {
+    _deck = nil;
+    _dueCardsArray = nil;
+    _scheduleController = nil;
 }
 
 - (void)showNoCardsDue {

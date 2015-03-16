@@ -23,7 +23,7 @@ void deleteObject(NSManagedObject *object) {
 }
 
 // fetches objects from the NSManagedObjectContext
-//  returns nil if no objects are found
+//  returns an empty array if no objects are found
 NSArray* fetchObjects(NSString *entityName, NSPredicate *predicate, NSArray *sortDescriptors) {
     // get the managed object context
     NSManagedObjectContext *moc = defaultManagedObjectContext();

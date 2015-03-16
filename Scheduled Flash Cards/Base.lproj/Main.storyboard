@@ -88,6 +88,7 @@
                         <outlet property="tableView" destination="pK0-pY-faK" id="qD7-GU-vzv"/>
                         <segue destination="iR1-SR-vlH" kind="presentation" identifier="ShowAddNewDeckVC" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="a1f-14-57T"/>
                         <segue destination="a5R-7d-xVX" kind="show" identifier="AddCardSegue" id="Ezh-cN-LjD"/>
+                        <segue destination="AS1-YB-W07" kind="show" identifier="ReviewCardsSegue" id="EGa-Sa-R5z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -216,6 +217,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70n-8K-E6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1144" y="1184"/>
+        </scene>
+        <!--Review Cards-->
+        <scene sceneID="0hh-Ym-L6i">
+            <objects>
+                <viewController title="Review Cards" id="AS1-YB-W07" customClass="ReviewCardsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="suY-Ar-MlT"/>
+                        <viewControllerLayoutGuide type="bottom" id="3OC-F4-uVw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sa5-n0-mXd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ZN-RH-l07" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2018" y="441"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1KP-sf-9mm">

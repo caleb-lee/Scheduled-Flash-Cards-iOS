@@ -8,6 +8,7 @@
 
 #import "MainMenuViewController.h"
 #import "AddNewCardViewController.h"
+#import "ReviewCardsViewController.h"
 
 @interface MainMenuViewController ()
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
@@ -22,6 +23,7 @@
 
 static NSString *addNewDeckSegueIdentifier = @"ShowAddNewDeckVC";
 static NSString *addCardSegueIdentifier = @"AddCardSegue";
+static NSString *reviewCardsSegueIdentifier = @"ReviewCardsSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,6 +68,9 @@ static NSString *addCardSegueIdentifier = @"AddCardSegue";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:addCardSegueIdentifier]) {
         AddNewCardViewController *vc = (AddNewCardViewController*)segue.destinationViewController;
+        vc.deck = _selectedDeck;
+    } else if ([segue.identifier isEqualToString:reviewCardsSegueIdentifier]) {
+        ReviewCardsViewController *vc = (ReviewCardsViewController*)segue.destinationViewController;
         vc.deck = _selectedDeck;
     }
 }
@@ -158,7 +163,7 @@ static NSString *addCardSegueIdentifier = @"AddCardSegue";
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0: // review cards
-            
+            [self performSegueWithIdentifier:reviewCardsSegueIdentifier sender:self];
             break;
         case 1: // add cards
             [self performSegueWithIdentifier:addCardSegueIdentifier sender:self];

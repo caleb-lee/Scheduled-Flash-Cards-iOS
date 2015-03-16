@@ -31,7 +31,7 @@ static NSString *entityName = @"Deck";
 }
 
 // grabs the deck with the given name out of the database and returns it
-//  returns nil if deck with no such name exists
+//  returns nil if no such deck is found
 + (Deck*)deckWithName:(NSString*)name {
     // set up predicate and sort descriptors
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", name];

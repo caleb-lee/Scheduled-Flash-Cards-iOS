@@ -27,7 +27,7 @@ static NSString *entityName = @"Card";
 }
 
 // this method returns all due cards in the given deck
-//  or returns nil if there are no cards due
+//  or returns an empty array if no cards are due
 + (NSArray*)getDueCardsInDeck:(Deck*)deck {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deck == %@) AND (nextSeeDate <= %@)", deck, [NSDate date]];
     NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"interval" ascending:NO],
