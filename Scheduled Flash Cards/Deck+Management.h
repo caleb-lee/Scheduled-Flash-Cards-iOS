@@ -17,4 +17,7 @@
 //  returns nil if deck with no such name exists
 + (Deck*)deckWithName:(NSString*)name;
 
+// returns an NSFetchedResultsController that contains all decks
++ (NSFetchedResultsController*)deckFetchedResultsController;
+
 @end

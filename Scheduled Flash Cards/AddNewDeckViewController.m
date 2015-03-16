@@ -80,8 +80,6 @@
     if (!success) {
         UIAlertView *nameAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please choose a different name for your new deck." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [nameAlert show];
-        
-        success = NO;
     }
     
     // show deck created successfully text if needed

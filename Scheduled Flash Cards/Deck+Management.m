@@ -21,8 +21,10 @@ static NSString *entityName = @"Deck";
     Deck *newDeck = nil;
     
     // if no duplicate, insert new deck
-    if (oldDeck == nil)
+    if (oldDeck == nil) {
         newDeck = (Deck*)[NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:defaultManagedObjectContext()];
+        newDeck.name = name;
+    }
     
     // return what we have
     return newDeck;
@@ -39,6 +41,17 @@ static NSString *entityName = @"Deck";
     Deck *deck = (Deck*)fetchObject(entityName, predicate, sortDescriptors);
     
     return deck;
+}
+
+// returns an NSFetchedResultsController that contains all decks
++ (NSFetchedResultsController*)deckFetchedResultsController {
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    
+    NSFetchRequest *request = fetchRequest(entityName, nil, sortDescriptors);
+    
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:defaultManagedObjectContext() sectionNameKeyPath:nil cacheName:nil];
+    
+    return fetchedResultsController;
 }
 
 @end
