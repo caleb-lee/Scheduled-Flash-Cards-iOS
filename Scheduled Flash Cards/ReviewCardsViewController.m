@@ -23,6 +23,7 @@
 - (IBAction)goodButtonAction:(id)sender;
 - (IBAction)easyButtonAction:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIWebView *cardDisplayWebView;
 @end
 
 @implementation ReviewCardsViewController
@@ -74,11 +75,6 @@
     _currentlyShowingCard = [_dueCardsArray objectAtIndex:_currentCardIndex];
 }
 
-#pragma Mark - UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (IBAction)wrongButtonAction:(id)sender {
     [self gradeCardWithDifficulty:0];
 }
@@ -99,6 +95,11 @@
     [_scheduleController scheduleCard:_currentlyShowingCard withDifficulty:3];
     _currentCardIndex++;
     [self showCardIfNeeded];
+}
+
+#pragma Mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

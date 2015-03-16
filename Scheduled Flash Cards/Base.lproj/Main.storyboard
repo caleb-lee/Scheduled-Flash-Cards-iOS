@@ -267,6 +267,10 @@
                                     <action selector="wrongButtonAction:" destination="AS1-YB-W07" eventType="touchUpInside" id="2ul-I6-gex"/>
                                 </connections>
                             </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzR-rp-ORd">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wde-pl-LnZ">
                                 <rect key="frame" x="450" y="556" width="150" height="44"/>
                                 <color key="backgroundColor" red="0.067093433959477977" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -283,14 +287,18 @@
                         <constraints>
                             <constraint firstItem="vbw-gX-YUc" firstAttribute="width" secondItem="2hT-gq-3Ek" secondAttribute="width" id="0T7-ZW-T21"/>
                             <constraint firstItem="vbw-gX-YUc" firstAttribute="leading" secondItem="2hT-gq-3Ek" secondAttribute="trailing" id="2ya-2C-4Pg"/>
+                            <constraint firstAttribute="trailing" secondItem="hzR-rp-ORd" secondAttribute="trailing" id="4XY-0d-OB4"/>
                             <constraint firstAttribute="bottom" secondItem="vbw-gX-YUc" secondAttribute="bottom" id="4du-uC-TeI"/>
                             <constraint firstAttribute="width" secondItem="vbw-gX-YUc" secondAttribute="width" multiplier="4" id="7mv-cJ-awN"/>
                             <constraint firstItem="POb-wZ-4wD" firstAttribute="height" secondItem="2hT-gq-3Ek" secondAttribute="height" id="8Jg-VX-gza"/>
                             <constraint firstItem="wde-pl-LnZ" firstAttribute="leading" secondItem="POb-wZ-4wD" secondAttribute="trailing" id="B7f-yh-N3F"/>
+                            <constraint firstItem="hzR-rp-ORd" firstAttribute="leading" secondItem="sa5-n0-mXd" secondAttribute="leading" id="I5F-vo-zu0"/>
                             <constraint firstAttribute="bottom" secondItem="2hT-gq-3Ek" secondAttribute="bottom" id="IY9-s8-yBT"/>
                             <constraint firstItem="POb-wZ-4wD" firstAttribute="leading" secondItem="vbw-gX-YUc" secondAttribute="trailing" id="J8b-eX-jB2"/>
+                            <constraint firstItem="vbw-gX-YUc" firstAttribute="top" secondItem="hzR-rp-ORd" secondAttribute="bottom" id="KGt-Y6-OEe"/>
                             <constraint firstAttribute="bottom" secondItem="wde-pl-LnZ" secondAttribute="bottom" id="P0m-Gt-NRM"/>
                             <constraint firstItem="vbw-gX-YUc" firstAttribute="width" secondItem="POb-wZ-4wD" secondAttribute="width" id="T5b-vS-JEo"/>
+                            <constraint firstItem="hzR-rp-ORd" firstAttribute="top" secondItem="sa5-n0-mXd" secondAttribute="top" constant="64" id="XHw-61-xMa"/>
                             <constraint firstAttribute="bottom" secondItem="POb-wZ-4wD" secondAttribute="bottom" id="YXe-5z-GVR"/>
                             <constraint firstItem="POb-wZ-4wD" firstAttribute="height" secondItem="vbw-gX-YUc" secondAttribute="height" id="cGk-hv-vu0"/>
                             <constraint firstItem="2hT-gq-3Ek" firstAttribute="leading" secondItem="sa5-n0-mXd" secondAttribute="leading" id="caW-3H-M5d"/>
@@ -298,10 +306,13 @@
                             <constraint firstItem="POb-wZ-4wD" firstAttribute="height" secondItem="wde-pl-LnZ" secondAttribute="height" id="wfL-Wu-5IY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cardDisplayWebView" destination="hzR-rp-ORd" id="y3s-yt-Msh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ZN-RH-l07" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2018" y="441"/>
+            <point key="canvasLocation" x="2019" y="441"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1KP-sf-9mm">
