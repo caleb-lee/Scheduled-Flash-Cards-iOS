@@ -13,9 +13,18 @@
 static NSString *entityName = @"Deck";
 
 // creates/inserts a new deck with the given name and returns it
+//  returns nil if there's already a deck with that name
 + (Deck*)insertDeckWithName:(NSString*)name {
-    Deck *newDeck = (Deck*)[NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:defaultManagedObjectContext()];
+    // check for duplicate
+    Deck *oldDeck = [Deck deckWithName:name];
     
+    Deck *newDeck = nil;
+    
+    // if no duplicate, insert new deck
+    if (oldDeck == nil)
+        newDeck = (Deck*)[NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:defaultManagedObjectContext()];
+    
+    // return what we have
     return newDeck;
 }
 

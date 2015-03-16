@@ -60,8 +60,8 @@
                             <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvM-AH-tZi" userLabel="Container View (to be resized)">
                                 <rect key="frame" x="16" y="20" width="568" height="480"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3O-9g-F6s" userLabel="Center Interface">
-                                        <rect key="frame" x="164" y="146" width="240" height="180"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3O-9g-F6s" userLabel="Center Interface">
+                                        <rect key="frame" x="164" y="145" width="240" height="180"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yed-Yk-QQI">
                                                 <rect key="frame" x="67" y="60" width="165" height="30"/>
@@ -132,11 +132,21 @@
                                             <constraint firstItem="yed-Yk-QQI" firstAttribute="leading" secondItem="wsg-IB-jTG" secondAttribute="trailing" constant="8" id="yKx-LM-y4G"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deck Created Successfully." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyY-fV-dze">
+                                        <rect key="frame" x="-16" y="-20" width="600" height="165"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="B3O-9g-F6s" secondAttribute="centerY" constant="5" id="REa-Sw-4dC"/>
                                     <constraint firstAttribute="centerX" secondItem="B3O-9g-F6s" secondAttribute="centerX" id="RsO-FU-0Nk"/>
+                                    <constraint firstAttribute="trailing" secondItem="XyY-fV-dze" secondAttribute="trailing" constant="-16" id="s8U-Qf-1hO"/>
+                                    <constraint firstItem="XyY-fV-dze" firstAttribute="leading" secondItem="YvM-AH-tZi" secondAttribute="leading" constant="-16" id="xlx-Vg-gfP"/>
+                                    <constraint firstItem="XyY-fV-dze" firstAttribute="top" secondItem="YvM-AH-tZi" secondAttribute="top" constant="-20" id="z7D-Ef-wyD"/>
+                                    <constraint firstItem="B3O-9g-F6s" firstAttribute="top" secondItem="XyY-fV-dze" secondAttribute="bottom" id="zbz-9Y-bqI"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -150,6 +160,7 @@
                     </view>
                     <connections>
                         <outlet property="containerViewBottomSpaceConstraint" destination="lly-vu-g0I" id="kwc-b1-jRK"/>
+                        <outlet property="deckCreatedSuccessfully" destination="XyY-fV-dze" id="00e-9G-W65"/>
                         <outlet property="nameTextField" destination="yed-Yk-QQI" id="526-YU-iLU"/>
                     </connections>
                 </viewController>

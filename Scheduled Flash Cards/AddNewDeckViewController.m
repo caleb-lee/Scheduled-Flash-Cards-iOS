@@ -26,12 +26,18 @@
 // set its value to the height of the keyboard to keep the "create deck"
 //  prompt centered on screen
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewBottomSpaceConstraint;
+
+// show this when a deck is created successfully
+@property (weak, nonatomic) IBOutlet UILabel *deckCreatedSuccessfully;
 @end
 
 @implementation AddNewDeckViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // hide "Deck Created Successfully."
+    _deckCreatedSuccessfully.hidden = YES;
     
     // register keyboard notifications
     [self registerForKeyboardNotifications];
@@ -61,15 +67,26 @@
 // if successful (i.e., if the name is valid), returns YES
 // if not, returns NO
 - (BOOL)addNewDeck {
-    if ([_nameTextField.text isEqualToString:@""]) {
+    BOOL success = ![_nameTextField.text isEqualToString:@""];
+    
+    // if the name passed the test above^^, attempt to insert the new deck into the database
+    if (success) {
+        Deck *newDeck = [Deck insertDeckWithName:_nameTextField.text];
+        
+        success = (newDeck != nil);
+    }
+    
+    // if the insert wasn't successful, show an alert to change the name
+    if (!success) {
         UIAlertView *nameAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please choose a different name for your new deck." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [nameAlert show];
         
-        return NO;
+        success = NO;
     }
     
-    [Deck insertDeckWithName:_nameTextField.text];
-    return YES;
+    // show deck created successfully text if needed
+    _deckCreatedSuccessfully.hidden = !success;
+    return success;
 }
 
 // dismisses the keyboard and dismisses the view controller
@@ -92,9 +109,6 @@
 - (void)keyboardWillBeShown:(NSNotification*)aNotification {
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-#ifdef DEBUG
-    NSLog(@"Keyboard Height: %f", kbSize.height);
-#endif
     
     _containerViewBottomSpaceConstraint.constant = kbSize.height;
     [self.view layoutSubviews];
