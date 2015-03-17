@@ -22,11 +22,16 @@
 - (IBAction)hardButtonAction:(id)sender;
 - (IBAction)goodButtonAction:(id)sender;
 - (IBAction)easyButtonAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *showAnswerButton;
+- (IBAction)showAnswerButtonAction:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIWebView *cardDisplayWebView;
 @end
 
 @implementation ReviewCardsViewController
+
+static NSString *htmlHeader = @"<html><body>";
+static NSString *htmlFooter = @"</body></html>";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,8 +41,10 @@
     _scheduleController = [[ScheduleController alloc] init];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.view bringSubviewToFront:_showAnswerButton];
     
     // show first view
     [self showCardIfNeeded];
@@ -55,7 +62,7 @@
     if ([_dueCardsArray count] == 0)
         [self showNoCardsDue];
     else
-        [self showCard];
+        [self showCardQuestion];
 }
 
 - (void)dealloc {
@@ -70,9 +77,30 @@
     [noCardsAlert show];
 }
 
-- (void)showCard {
-#warning TODO
+- (void)showCardQuestion {
     _currentlyShowingCard = [_dueCardsArray objectAtIndex:_currentCardIndex];
+    
+    [_cardDisplayWebView loadHTMLString:[self questionHtmlString] baseURL:nil];
+}
+
+- (void)showCardAnswer {
+    [_cardDisplayWebView loadHTMLString:[self answerHtmlString] baseURL:nil];
+}
+
+- (NSString*)questionHtmlString {
+    return [NSString stringWithFormat:@"%@%@%@", htmlHeader, [self frontHtmlString:_currentlyShowingCard.front], htmlFooter];
+}
+
+- (NSString*)answerHtmlString {
+    return [NSString stringWithFormat:@"%@%@<hr>%@%@", htmlHeader, [self frontHtmlString:_currentlyShowingCard.front], [self backHtmlString:_currentlyShowingCard.back], htmlFooter];
+}
+
+- (NSString*)frontHtmlString:(NSString*)front {
+    return [NSString stringWithFormat:@"<div id=\"front\">%@</div>", front];
+}
+
+- (NSString*)backHtmlString:(NSString*)back {
+    return [NSString stringWithFormat:@"<div id=\"back\">%@</div>", back];
 }
 
 - (IBAction)wrongButtonAction:(id)sender {
@@ -92,8 +120,9 @@
 }
 
 - (void)gradeCardWithDifficulty:(NSInteger)difficulty {
-    [_scheduleController scheduleCard:_currentlyShowingCard withDifficulty:3];
+    [_scheduleController scheduleCard:_currentlyShowingCard withDifficulty:difficulty];
     _currentCardIndex++;
+    _showAnswerButton.hidden = NO;
     [self showCardIfNeeded];
 }
 
@@ -102,4 +131,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)showAnswerButtonAction:(id)sender {
+    [self showCardAnswer];
+    _showAnswerButton.hidden = YES;
+}
 @end

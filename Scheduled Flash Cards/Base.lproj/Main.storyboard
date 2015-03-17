@@ -353,6 +353,16 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2H-H2-b0V">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Show Answer">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showAnswerButtonAction:" destination="AS1-YB-W07" eventType="touchUpInside" id="b7b-4h-Ibx"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wde-pl-LnZ">
                                 <rect key="frame" x="450" y="556" width="150" height="44"/>
                                 <color key="backgroundColor" red="0.067093433959477977" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -368,7 +378,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vbw-gX-YUc" firstAttribute="width" secondItem="2hT-gq-3Ek" secondAttribute="width" id="0T7-ZW-T21"/>
+                            <constraint firstItem="e2H-H2-b0V" firstAttribute="leading" secondItem="sa5-n0-mXd" secondAttribute="leading" id="2JN-51-Q5F"/>
                             <constraint firstItem="vbw-gX-YUc" firstAttribute="leading" secondItem="2hT-gq-3Ek" secondAttribute="trailing" id="2ya-2C-4Pg"/>
+                            <constraint firstAttribute="trailing" secondItem="e2H-H2-b0V" secondAttribute="trailing" id="33l-l2-Xte"/>
                             <constraint firstAttribute="trailing" secondItem="hzR-rp-ORd" secondAttribute="trailing" id="4XY-0d-OB4"/>
                             <constraint firstAttribute="bottom" secondItem="vbw-gX-YUc" secondAttribute="bottom" id="4du-uC-TeI"/>
                             <constraint firstAttribute="width" secondItem="vbw-gX-YUc" secondAttribute="width" multiplier="4" id="7mv-cJ-awN"/>
@@ -380,8 +392,10 @@
                             <constraint firstItem="vbw-gX-YUc" firstAttribute="top" secondItem="hzR-rp-ORd" secondAttribute="bottom" id="KGt-Y6-OEe"/>
                             <constraint firstAttribute="bottom" secondItem="wde-pl-LnZ" secondAttribute="bottom" id="P0m-Gt-NRM"/>
                             <constraint firstItem="vbw-gX-YUc" firstAttribute="width" secondItem="POb-wZ-4wD" secondAttribute="width" id="T5b-vS-JEo"/>
+                            <constraint firstAttribute="bottom" secondItem="e2H-H2-b0V" secondAttribute="bottom" id="TYZ-sO-cu2"/>
                             <constraint firstItem="hzR-rp-ORd" firstAttribute="top" secondItem="sa5-n0-mXd" secondAttribute="top" constant="64" id="XHw-61-xMa"/>
                             <constraint firstAttribute="bottom" secondItem="POb-wZ-4wD" secondAttribute="bottom" id="YXe-5z-GVR"/>
+                            <constraint firstItem="e2H-H2-b0V" firstAttribute="height" secondItem="2hT-gq-3Ek" secondAttribute="height" id="aaP-z9-AbN"/>
                             <constraint firstItem="POb-wZ-4wD" firstAttribute="height" secondItem="vbw-gX-YUc" secondAttribute="height" id="cGk-hv-vu0"/>
                             <constraint firstItem="2hT-gq-3Ek" firstAttribute="leading" secondItem="sa5-n0-mXd" secondAttribute="leading" id="caW-3H-M5d"/>
                             <constraint firstItem="vbw-gX-YUc" firstAttribute="width" secondItem="wde-pl-LnZ" secondAttribute="width" id="cmm-Rf-UoZ"/>
@@ -390,6 +404,7 @@
                     </view>
                     <connections>
                         <outlet property="cardDisplayWebView" destination="hzR-rp-ORd" id="y3s-yt-Msh"/>
+                        <outlet property="showAnswerButton" destination="e2H-H2-b0V" id="HID-MA-EXS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ZN-RH-l07" userLabel="First Responder" sceneMemberID="firstResponder"/>
