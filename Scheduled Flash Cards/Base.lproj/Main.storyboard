@@ -99,7 +99,6 @@
                         <outlet property="addCardButton" destination="gjf-pk-xUq" id="VqN-lk-GLg"/>
                         <outlet property="backTextView" destination="R9m-u2-7hY" id="Ruw-hC-I1j"/>
                         <outlet property="containerBottomConstraint" destination="wy2-uW-uhN" id="6JU-Ue-1xh"/>
-                        <outlet property="containerTopConstraint" destination="5ay-8l-bxL" id="yeJ-43-Glt"/>
                         <outlet property="frontTextView" destination="PdP-xR-0fB" id="wHg-il-04K"/>
                     </connections>
                 </viewController>
