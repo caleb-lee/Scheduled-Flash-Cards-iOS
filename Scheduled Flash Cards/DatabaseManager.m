@@ -16,6 +16,12 @@ NSManagedObjectContext* defaultManagedObjectContext() {
     return [appDelegate managedObjectContext];
 }
 
+// save
+void saveManagedObjectContext() {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate saveContext];
+}
+
 // deletes an object from the NSManagedObjectContext
 void deleteObject(NSManagedObject *object) {
     NSManagedObjectContext *moc = defaultManagedObjectContext();

@@ -11,6 +11,9 @@
 // gets the NSManagedObjectContext
 NSManagedObjectContext* defaultManagedObjectContext();
 
+// save
+void saveManagedObjectContext();
+
 // deletes an object from the NSManagedObjectContext
 void deleteObject(NSManagedObject *object);
 
