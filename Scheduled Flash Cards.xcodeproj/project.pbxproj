@@ -24,6 +24,7 @@
 		84B55BF11AB76EC10010C60B /* AddNewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BF01AB76EC10010C60B /* AddNewCardViewController.m */; };
 		84B55BF41AB779010010C60B /* ScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BF31AB779010010C60B /* ScheduleController.m */; };
 		84B55BF71AB782C60010C60B /* ReviewCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BF61AB782C60010C60B /* ReviewCardsViewController.m */; };
+		84B55BFD1AB7CC740010C60B /* UIView+GreyBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B55BFC1AB7CC740010C60B /* UIView+GreyBorder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		84B55BF31AB779010010C60B /* ScheduleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleController.m; sourceTree = "<group>"; };
 		84B55BF51AB782C60010C60B /* ReviewCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewCardsViewController.h; sourceTree = "<group>"; };
 		84B55BF61AB782C60010C60B /* ReviewCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewCardsViewController.m; sourceTree = "<group>"; };
+		84B55BFB1AB7CC740010C60B /* UIView+GreyBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GreyBorder.h"; sourceTree = "<group>"; };
+		84B55BFC1AB7CC740010C60B /* UIView+GreyBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GreyBorder.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				84B55BF21AB779010010C60B /* ScheduleController.h */,
 				84B55BF31AB779010010C60B /* ScheduleController.m */,
 				841822101AB2756200D67DF8 /* Main.storyboard */,
+				84B55BFB1AB7CC740010C60B /* UIView+GreyBorder.h */,
+				84B55BFC1AB7CC740010C60B /* UIView+GreyBorder.m */,
 				841822131AB2756200D67DF8 /* Images.xcassets */,
 				841822151AB2756200D67DF8 /* LaunchScreen.xib */,
 				84B55BD81AB72EDB0010C60B /* Model */,
@@ -294,6 +299,7 @@
 				8418220F1AB2756200D67DF8 /* MainMenuViewController.m in Sources */,
 				841822061AB2756200D67DF8 /* main.m in Sources */,
 				84B55BE51AB7390C0010C60B /* Card.m in Sources */,
+				84B55BFD1AB7CC740010C60B /* UIView+GreyBorder.m in Sources */,
 				84B55BED1AB74EF60010C60B /* DatabaseManager.m in Sources */,
 				84B55BE21AB72F6C0010C60B /* Card+Management.m in Sources */,
 			);
