@@ -45,6 +45,10 @@ static NSString *htmlFooter = @"</body></html>";
     [super viewWillAppear:animated];
     
     [self.view bringSubviewToFront:_showAnswerButton];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
     // show first view
     [self showCardIfNeeded];
@@ -74,6 +78,7 @@ static NSString *htmlFooter = @"</body></html>";
 
 - (void)showNoCardsDue {
     [_cardDisplayWebView loadHTMLString:@"" baseURL:nil];
+    
     UIAlertView *noCardsAlert = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"There are currently no cards due in deck \"%@\"", _deck.name] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
     [noCardsAlert show];
 }
