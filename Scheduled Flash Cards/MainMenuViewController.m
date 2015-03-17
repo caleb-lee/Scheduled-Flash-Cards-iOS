@@ -9,6 +9,7 @@
 #import "MainMenuViewController.h"
 #import "AddNewCardViewController.h"
 #import "ReviewCardsViewController.h"
+#import "DatabaseManager.h"
 
 @interface MainMenuViewController ()
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
@@ -31,6 +32,13 @@ static NSString *reviewCardsSegueIdentifier = @"ReviewCardsSegue";
     
     // set up the fetched results controller
     [self setUpFetchedResultsController];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // save context
+    saveManagedObjectContext();
 }
 
 - (void)didReceiveMemoryWarning {
