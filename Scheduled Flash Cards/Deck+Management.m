@@ -10,7 +10,8 @@
 #import "DatabaseManager.h"
 
 @implementation Deck (Management)
-static NSString *entityName = @"Deck";
+static NSString *const EntityName = @"Deck";
+static NSString *const KeyForName = @"name";
 
 // creates/inserts a new deck with the given name and returns it
 //  returns nil if there's already a deck with that name
@@ -22,7 +23,7 @@ static NSString *entityName = @"Deck";
     
     // if no duplicate, insert new deck
     if (oldDeck == nil) {
-        newDeck = (Deck*)[NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:defaultManagedObjectContext()];
+        newDeck = (Deck *)[NSEntityDescription insertNewObjectForEntityForName:EntityName inManagedObjectContext:defaultManagedObjectContext()];
         newDeck.name = name;
     }
     
@@ -35,19 +36,19 @@ static NSString *entityName = @"Deck";
 + (Deck*)deckWithName:(NSString*)name {
     // set up predicate and sort descriptors
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", name];
-    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:KeyForName ascending:YES]];
     
     // fetch the deck with name
-    Deck *deck = (Deck*)fetchObject(entityName, predicate, sortDescriptors);
+    Deck *deck = (Deck *)fetchObject(EntityName, predicate, sortDescriptors);
     
     return deck;
 }
 
 // returns an NSFetchedResultsController that contains all decks
 + (NSFetchedResultsController*)deckFetchedResultsController {
-    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:KeyForName ascending:YES]];
     
-    NSFetchRequest *request = fetchRequest(entityName, nil, sortDescriptors);
+    NSFetchRequest *request = fetchRequest(EntityName, nil, sortDescriptors);
     
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:defaultManagedObjectContext() sectionNameKeyPath:nil cacheName:nil];
     

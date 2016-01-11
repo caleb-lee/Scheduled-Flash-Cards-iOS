@@ -37,14 +37,14 @@ static NSString *htmlFooter = @"</body></html>";
     [super viewDidLoad];
     
     // set defaults
-    _currentCardIndex = 0;
-    _scheduleController = [[ScheduleController alloc] init];
+    self.currentCardIndex = 0;
+    self.scheduleController = [[ScheduleController alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.view bringSubviewToFront:_showAnswerButton];
+    [self.view bringSubviewToFront:self.showAnswerButton];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -56,49 +56,54 @@ static NSString *htmlFooter = @"</body></html>";
 
 - (void)showCardIfNeeded {
     // check for more due cards if we're at the limit (or if this is our first time seeing this screen)
-    if (_dueCardsArray == nil || _currentCardIndex == [_dueCardsArray count]) {
-        _currentCardIndex = 0; // reset current card index
-        _dueCardsArray = [Card getDueCardsInDeck:_deck];
+    if (self.dueCardsArray == nil || self.currentCardIndex == [self.dueCardsArray count]) {
+        self.currentCardIndex = 0; // reset current card index
+        self.dueCardsArray = [Card getDueCardsInDeck:self.deck];
     }
     
     // if we still have no cards, show no cards due
     //  otherwise, show card
-    if ([_dueCardsArray count] == 0)
+    if ([self.dueCardsArray count] == 0)
         [self showNoCardsDue];
     else
         [self showCardQuestion];
 }
 
-- (void)dealloc {
-    _deck = nil;
-    _dueCardsArray = nil;
-    _scheduleController = nil;
-    _currentlyShowingCard = nil;
-}
-
 - (void)showNoCardsDue {
-    [_cardDisplayWebView loadHTMLString:@"" baseURL:nil];
+    [self.cardDisplayWebView loadHTMLString:@"" baseURL:nil];
     
-    UIAlertView *noCardsAlert = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"There are currently no cards due in deck \"%@\"", _deck.name] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [noCardsAlert show];
+    UIAlertController *noCardsAlert = [UIAlertController alertControllerWithTitle:nil
+                                                                          message:[NSString stringWithFormat:NSLocalizedString(@"There are currently no cards due in deck \"%@\"", nil), self.deck.name]
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+    typeof(self) __weak weakSelf = self;
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil)
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction *action){
+                                                         [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+                                                     }];
+    [noCardsAlert addAction:okAction];
+    
+    [self presentViewController:noCardsAlert
+                       animated:YES
+                     completion:nil];
 }
 
 - (void)showCardQuestion {
-    _currentlyShowingCard = [_dueCardsArray objectAtIndex:_currentCardIndex];
+    self.currentlyShowingCard = [self.dueCardsArray objectAtIndex:self.currentCardIndex];
     
-    [_cardDisplayWebView loadHTMLString:[self questionHtmlString] baseURL:nil];
+    [self.cardDisplayWebView loadHTMLString:[self questionHtmlString] baseURL:nil];
 }
 
 - (void)showCardAnswer {
-    [_cardDisplayWebView loadHTMLString:[self answerHtmlString] baseURL:nil];
+    [self.cardDisplayWebView loadHTMLString:[self answerHtmlString] baseURL:nil];
 }
 
 - (NSString*)questionHtmlString {
-    return [NSString stringWithFormat:@"%@%@%@", htmlHeader, [self frontHtmlString:_currentlyShowingCard.front], htmlFooter];
+    return [NSString stringWithFormat:@"%@%@%@", htmlHeader, [self frontHtmlString:self.currentlyShowingCard.front], htmlFooter];
 }
 
 - (NSString*)answerHtmlString {
-    return [NSString stringWithFormat:@"%@%@<hr>%@%@", htmlHeader, [self frontHtmlString:_currentlyShowingCard.front], [self backHtmlString:_currentlyShowingCard.back], htmlFooter];
+    return [NSString stringWithFormat:@"%@%@<hr>%@%@", htmlHeader, [self frontHtmlString:self.currentlyShowingCard.front], [self backHtmlString:self.currentlyShowingCard.back], htmlFooter];
 }
 
 - (NSString*)frontHtmlString:(NSString*)front {
@@ -126,19 +131,14 @@ static NSString *htmlFooter = @"</body></html>";
 }
 
 - (void)gradeCardWithDifficulty:(NSInteger)difficulty {
-    [_scheduleController scheduleCard:_currentlyShowingCard withDifficulty:difficulty];
-    _currentCardIndex++;
-    _showAnswerButton.hidden = NO;
+    [self.scheduleController scheduleCard:self.currentlyShowingCard withDifficulty:difficulty];
+    self.currentCardIndex++;
+    self.showAnswerButton.hidden = NO;
     [self showCardIfNeeded];
-}
-
-#pragma Mark - UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)showAnswerButtonAction:(id)sender {
     [self showCardAnswer];
-    _showAnswerButton.hidden = YES;
+    self.showAnswerButton.hidden = YES;
 }
 @end

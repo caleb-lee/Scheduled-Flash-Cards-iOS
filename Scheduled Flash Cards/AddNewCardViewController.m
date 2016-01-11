@@ -28,9 +28,9 @@
     [super viewDidLoad];
     
     // add grey outline to add card button
-    [_addCardButton addThinGreyBorder];
-    [_frontTextView addThinGreyBorder];
-    [_backTextView addThinGreyBorder];
+    [self.addCardButton addThinGreyBorder];
+    [self.frontTextView addThinGreyBorder];
+    [self.backTextView addThinGreyBorder];
     
     // register keyboard notifications
     [self registerForKeyboardNotifications];
@@ -39,21 +39,27 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [_frontTextView becomeFirstResponder];
-}
-
-- (void)dealloc {
-    _deck = nil;
+    [self.frontTextView becomeFirstResponder];
 }
 
 - (IBAction)addCardButtonAction:(id)sender {
-    [Card insertCardWithFront:_frontTextView.text Back:_backTextView.text intoDeck:_deck];
-    _frontTextView.text = @"";
-    _backTextView.text = @"";
-    [_frontTextView becomeFirstResponder];
+    [Card insertCardWithFront:self.frontTextView.text
+                         back:self.backTextView.text
+                     intoDeck:self.deck];
+    self.frontTextView.text = @"";
+    self.backTextView.text = @"";
+    [self.frontTextView becomeFirstResponder];
     
-    UIAlertView *successAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Card added successfully" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [successAlert show];
+    UIAlertController *successAlert = [UIAlertController alertControllerWithTitle:nil
+                                                                          message:NSLocalizedString(@"Card added successfully", nil)
+                                                                   preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil)
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:nil];
+    [successAlert addAction:okAction];
+    [self presentViewController:successAlert
+                       animated:YES
+                     completion:nil];
 }
 
 // notifies when the keyboard is being shown or hidden
@@ -67,11 +73,11 @@
 // the method called when the keyboard gets shown
 //  it changes containerViewBottomSpaceConstraint to the correct constant and lays out the vc's views
 //  from https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
-- (void)keyboardWillBeShown:(NSNotification*)aNotification {
-    NSDictionary* info = [aNotification userInfo];
+- (void)keyboardWillBeShown:(NSNotification *)aNotification {
+    NSDictionary *info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    _containerBottomConstraint.constant = kbSize.height;
+    self.containerBottomConstraint.constant = kbSize.height;
     [self.view layoutSubviews];
 }
 

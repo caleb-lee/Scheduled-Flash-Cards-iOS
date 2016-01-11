@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Deck.h"
 
-@interface ReviewCardsViewController : UIViewController <UIAlertViewDelegate>
+@interface ReviewCardsViewController : UIViewController
 
 @property (strong, nonatomic) Deck *deck;
 

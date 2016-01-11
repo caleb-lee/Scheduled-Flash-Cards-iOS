@@ -37,7 +37,7 @@
     [super viewDidLoad];
     
     // hide "Deck Created Successfully."
-    _deckCreatedSuccessfully.hidden = YES;
+    self.deckCreatedSuccessfully.hidden = YES;
     
     // register keyboard notifications
     [self registerForKeyboardNotifications];
@@ -47,7 +47,7 @@
     [super viewWillAppear:animated];
     
     // set name text box to first responder (selects text box & shows keyboard)
-    [_nameTextField becomeFirstResponder];
+    [self.nameTextField becomeFirstResponder];
 }
 
 - (IBAction)okButtonAction:(id)sender {
@@ -67,23 +67,31 @@
 // if successful (i.e., if the name is valid), returns YES
 // if not, returns NO
 - (BOOL)addNewDeck {
-    BOOL success = ![_nameTextField.text isEqualToString:@""];
+    BOOL success = ![self.nameTextField.text isEqualToString:@""];
     
     // if the name passed the test above^^, attempt to insert the new deck into the database
     if (success) {
-        Deck *newDeck = [Deck insertDeckWithName:_nameTextField.text];
+        Deck *newDeck = [Deck insertDeckWithName:self.nameTextField.text];
         
         success = (newDeck != nil);
     }
     
-    // if the insert wasn't successful, show an alert to change the name
-    if (!success) {
-        UIAlertView *nameAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Please choose a different name for your new deck." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-        [nameAlert show];
+    
+    if (!success) { // if the insert wasn't successful, show an alert to change the name
+        UIAlertController *nameAlert = [UIAlertController alertControllerWithTitle:nil
+                                                                           message:NSLocalizedString(@"Please choose a different name for your new deck.", nil)
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil)
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:nil];
+        [nameAlert addAction:okAction];
+        [self presentViewController:nameAlert
+                           animated:YES
+                         completion:nil];
     }
     
     // show deck created successfully text if needed
-    _deckCreatedSuccessfully.hidden = !success;
+    self.deckCreatedSuccessfully.hidden = !success;
     return success;
 }
 
@@ -108,7 +116,7 @@
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    _containerViewBottomSpaceConstraint.constant = kbSize.height;
+    self.containerViewBottomSpaceConstraint.constant = kbSize.height;
     [self.view layoutSubviews];
 }
 

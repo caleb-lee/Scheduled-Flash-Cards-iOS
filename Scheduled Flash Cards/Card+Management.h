@@ -13,7 +13,9 @@
 
 // creates and inserts a new card with the given front and back into the given deck
 //  it sets interval to 0, lastSeen to jan 1, 1970, and nextSee to now (whenever the card is added)
-+ (Card*)insertCardWithFront:(NSString*)front Back:(NSString*)back intoDeck:(Deck*)deck;
++ (Card*)insertCardWithFront:(NSString*)front
+                        back:(NSString*)back
+                    intoDeck:(Deck*)deck;
 
 // this method returns all due cards in the given deck
 //  or returns an empty array if there are no cards due

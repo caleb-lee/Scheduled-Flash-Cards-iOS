@@ -11,10 +11,14 @@
 
 @implementation Card (Management)
 
-static NSString *entityName = @"Card";
+static NSString *const EntityName = @"Card";
+static NSString *const KeyForInterval = @"interval";
+static NSString *const KeyForNextSeeDate = @"nextSeeDate";
 
-+ (Card*)insertCardWithFront:(NSString *)front Back:(NSString *)back intoDeck:(Deck *)deck {
-    Card *newCard = (Card*)[NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:defaultManagedObjectContext()];
++ (Card*)insertCardWithFront:(NSString *)front
+                        back:(NSString *)back
+                    intoDeck:(Deck *)deck {
+    Card *newCard = (Card*)[NSEntityDescription insertNewObjectForEntityForName:EntityName inManagedObjectContext:defaultManagedObjectContext()];
     
     [newCard setFront:front];
     [newCard setBack:back];
@@ -30,10 +34,10 @@ static NSString *entityName = @"Card";
 //  or returns an empty array if no cards are due
 + (NSArray*)getDueCardsInDeck:(Deck*)deck {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deck == %@) AND (nextSeeDate <= %@)", deck, [NSDate date]];
-    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"interval" ascending:NO],
-                                 [NSSortDescriptor sortDescriptorWithKey:@"nextSeeDate" ascending:YES]];
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:KeyForInterval ascending:NO],
+                                 [NSSortDescriptor sortDescriptorWithKey:KeyForNextSeeDate ascending:YES]];
     
-    NSArray *dueCards = fetchObjects(entityName, predicate, sortDescriptors);
+    NSArray *dueCards = fetchObjects(EntityName, predicate, sortDescriptors);
     return dueCards;
 }
 
